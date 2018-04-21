@@ -1,9 +1,9 @@
 import React from 'react';
-
+import Web3 from "web3";
 import { Flex, Modal, Icon, WingBlank, Toast } from 'antd-mobile';
 import {  Link } from 'react-router';
 
-import web3Service from '../services/user/web3Services';
+import W3Service from '../services/user/web3Services';
 import './Profile.less';
 import headImg from '../images/icon02.png';
 import addImg from '../images/icon03.png';
@@ -19,8 +19,12 @@ export default class Profile extends React.Component {
     };
   }
   componentDidMount() {
+  var web3 = new Web3(new Web3.providers.HttpProvider("https://kovan.infura.io/nRUCOskjng2tooOxkAlU"));
+
+      W3Service.request(web3.utils.fromAscii("123"), "0xea487d63037bd9257be46548eab3696651adb7cc", "deposite", web3.utils.fromAscii("random"), web3.utils.fromAscii("23223"));
+
     this.props.changeTitle('Cannon ID');
-    let submittedList = web3Service.querySubmittedList();
+    let submittedList = W3Service.querySubmittedList();
     this.setState({
       data: submittedList
     })

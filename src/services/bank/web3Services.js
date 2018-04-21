@@ -1,8 +1,6 @@
 import Web3 from "web3";
 import config from './config';
-export default {
-  getAllRequests, oracleCommit, getOracleList, getRuleList, request, getAllResponses
-};
+
 console.log("start web instance")
 var web3 = new Web3(new Web3.providers.HttpProvider("https://kovan.infura.io/nRUCOskjng2tooOxkAlU"));
 
@@ -117,6 +115,7 @@ function request(requestId, oracle, property, pubKey, platformId) {
             tran.on('error', console.error);
           });
     });
+    }
 
 
 // bytes32 responseId, bytes32 requestId, bytes32 hash, string property, string encrypedValue, uint256 expired
@@ -737,3 +736,6 @@ var myContract = new web3.eth.Contract([
                                    		"type": "function"
                                    	}
                                    ], "0x225f6f971a80bb03e8d16500da7da2c471628d0b");
+export default {
+  getAllRequests, oracleCommit, getOracleList, getRuleList, request, getAllResponses
+};
