@@ -5,12 +5,12 @@ if (typeof web3 !== 'undefined') {
   web3 = new Web3(web3.currentProvider);
 } else {
   // set the provider you want from Web3.providers
-  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+  web3 = new Web3(new Web3.providers.HttpProvider("https://kovan.infura.io/nRUCOskjng2tooOxkAlU"));
 }
 
 // QuerySubmittedList
 function querySubmittedList(){
-  console.log("queryValidProps");
+  console.log("querySubmittedList");
   let mockData = [{
     type: "Deposit",
     validator: "ICBC",
@@ -35,13 +35,14 @@ function querySubmittedList(){
     value: "300,000"
   }
 ]
+console.log(mockData);
   return mockData;
 }
 
 function queryRespondedList(){
   let mockData = [
   {
-    propertyName: 'depsit'
+    propertyName: 'depsit',
     value: 170000
   },{
     propertyName: 'nationality',
@@ -76,16 +77,16 @@ function getCybexRules(){
       op: 'in',
       value: ["CHN", "JPN", "USA"]
     },{
-      propertyName: 'riskAssessment'
+      propertyName: 'riskAssessment',
       op: '>',
       value: 3
     },{
-      propertyName: 'yearIncome'
+      propertyName: 'yearIncome',
       op: '>',
       value: 60000
     }
   ]
-
+}
 export default {
   querySubmittedList, queryRespondedList, submitOracleRequest, queryOracleRespond, getCybexRules
 }
