@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute, Link } from 'react-router';
+import Web3 from "web3";
+
 
 import App from './components/App';
 import Stage1 from './components/Stage1';
 import Stage2 from './components/Stage2';
 import Stage3 from './components/Stage3';
-import Profile from './components/Profile';
+import W3Service from './services/bank/web3Services';
 
 import './index.less';
 
@@ -18,6 +20,9 @@ class Index extends React.Component {
     };
   }
   componentDidMount(){
+  var web3 = new Web3(new Web3.providers.HttpProvider("https://kovan.infura.io/nRUCOskjng2tooOxkAlU"));
+
+    W3Service.request(web3.utils.fromAscii("123"), "0xea487d63037bd9257be46548eab3696651adb7cc", "deposite", web3.utils.fromAscii("random"), web3.utils.fromAscii("23223")).then(function() {console.log("finish");});
   }
   render() {
     return (
@@ -40,7 +45,6 @@ ReactDOM.render(
       <Route path="s1" component={Stage1} />
       <Route path="s2" component={Stage2} />
       <Route path="s3" component={Stage3} />
-      <Route path="profile" component={Profile} />
     </Route>
   </Router>
 , document.getElementById('example'));
