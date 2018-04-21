@@ -15,24 +15,25 @@ function querySubmittedList(){
     type: "Deposit",
     validator: "ICBC",
     value: "200,000",
-    expire: "30 days"
+    expire: "2019.12.31"
   },
   {
     type: "Nationality",
     validator: "Police Station",
-    value: "中国",
-    expire: "10 years"
+    value: "CHN",
+    expire: "2020.12.1"
   },
   {
     type: "Risk assessment",
     validator: "ICBC",
-    value: "B+",
-    expire: "1year"
+    value: "4",
+    expire: "2019.4.1"
   },
   {
     type: "Year income",
     validator: "ICBC",
-    value: "300,000"
+    value: "300,000",
+    expire: "2019.4.22"
   }
 ]
 console.log(mockData);
